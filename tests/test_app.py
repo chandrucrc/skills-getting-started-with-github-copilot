@@ -1,6 +1,12 @@
+
 import pytest
 from httpx import AsyncClient
-from src.app import app
+import sys
+from pathlib import Path
+
+# Ensure src/ is in sys.path for import
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+from app import app
 
 @pytest.mark.asyncio
 async def test_get_activities():
